@@ -37,6 +37,8 @@ from .usnavy import *
 from .urma import *
 from .cfs import *
 
+from .aqm import *
+
 # ======================================================================
 #                     Import Private Model Templates
 # ======================================================================
