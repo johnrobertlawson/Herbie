@@ -584,10 +584,15 @@ class Herbie:
             # Prepend the filename with the hash label to distinguish it
             # from the full file. The hash label is a cryptic
             # representation of the GRIB messages in the subset.
-            localFilePath = (
-                localFilePath.parent
-                / f"subset_{hash_date}{hash_fxx}{hash_label}__{localFilePath.name}"
-            )
+
+            # AQM model has not prefix - hotfix JRL
+            if self.model == "aqm":
+                localFilePath = localFilePath.parent / f"{localFilePath.name}"
+            else:
+                localFilePath = (
+                    localFilePath.parent
+                    / f"subset_{hash_date}{hash_fxx}{hash_label}__{localFilePath.name}"
+                )
 
         return localFilePath
 
